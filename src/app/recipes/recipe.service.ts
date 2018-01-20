@@ -1,13 +1,28 @@
 import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
+import { Ingredient } from "../shared/ingredient.model";
 
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'This is a test', 'https://static.pexels.com/photos/34950/pexels-photo.jpg'),
-    new Recipe('A Test Recipe 123', 'This is a test', 'https://static.pexels.com/photos/34950/pexels-photo.jpg')
+    new Recipe(
+      'Tacos', 
+      'Mouth Watering Family Recipe', 
+      'https://www.deltaco.com/files/menu/item/flatbreadtaco.png',
+      [
+        new Ingredient('Minced Meat', '1 lb'),
+        new Ingredient('Tomatoes', '3')
+      ]),
+    new Recipe(
+      'Chicken N Dumplings', 
+      'Mamas Recipe', 
+      'https://www.spendwithpennies.com/wp-content/uploads/2016/10/CrockPot-Chicken-and-Dumplings-25.jpg',
+      [
+        new Ingredient('Bone-in Chicken Breasts', '2 lbs'),
+        new Ingredient('Dumplings', '1 can of biscuits')
+      ])
   ];
 
   getRecipes() {
